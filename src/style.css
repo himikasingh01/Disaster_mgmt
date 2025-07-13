@@ -1,0 +1,343 @@
+/* Reset margin and padding */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* ====== NAVBAR ====== */
+  /* Navbar Styling */
+  .navbar {
+    background-color: beige;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex-wrap: nowrap; /* Prevent navbar from wrapping */
+    overflow: hidden;
+    padding: 10px 20px;
+  }
+  .navbar-logo {
+    height: 5px;
+    width: 5px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease-in-out;
+    padding-bottom: 7px;
+  }
+  
+  .navbar-logo:hover {
+    color: #ff4500;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 6px 10px;
+    margin: 0 3px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap; /* Prevent breaking */
+  }
+  
+  
+  .navbar-links {
+    display: flex;
+    justify-content: center; /* Centers the links */
+    flex-grow: 1; /* Takes up available space */
+    gap: 20px; /* Adjust space between links */
+  }
+  
+  .navbar a:hover {
+    background-color: black;
+    color: yellow;
+  }
+  
+  /* ====== FULL-SCREEN SLIDESHOW ====== */
+  #slideshow {
+    position: relative;
+    width: 100%; /* Adjusted width to match navbar and footer */
+
+    height: 100vh; /* Full height */
+    overflow: hidden;
+  }
+  
+  .slide-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 400%; /* 4 slides */
+  }
+  
+  
+  
+  
+  .slide {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Covers the screen without distortion */
+  }
+  
+  .hero-para {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Optional dark overlay */
+    padding: 15px 25px;
+    border-radius: 10px;
+  }
+  
+  /* Navigation Buttons */
+  .navigation-buttons {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  
+  button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .navigation-buttons button {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navigation-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Dots Indicator */
+  .dots {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .dot.active {
+    background-color: white;
+  }
+  
+  /* ====== CARD SECTION ====== */
+  .card-grid {
+    display: flex;
+    flex-wrap: nowrap; /* Change to nowrap for a single row */
+    justify-content: flex-start; /* Align items to the start */
+    gap: 1.5rem;
+    padding: 2rem;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  }
+
+  
+  /* Card */
+  .card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(171, 163, 163);
+    border-radius: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+    flex: 1 1 300px;
+  }
+  
+  /* Responsive card sizes */
+  @media screen and (min-width: 768px) {
+    .card {
+      width: 48%;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .card {
+      width: 30%;
+    }
+  }
+  
+  .card-name {
+    font-size: 1.2rem;
+  }
+  
+  .card-desc {
+    font-size: 1rem;
+    color: #777;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 80px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+  
+  /* Card button */
+  .card-one-button {
+    display: block;
+    text-align: center;
+    margin: 20px auto 0;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card-one-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .card-one-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* ====== FOOTER ====== */
+  .footer {
+    margin: 0; /* Remove left margin */
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    width: 100%;
+  }
+
+  
+  /* ====== RESPONSIVE DESIGN ====== */
+  @media screen and (max-width: 768px) {
+    .hero-para {
+      font-size: 2rem;
+      white-space: normal;
+    }
+  
+    .navbar a {
+      font-size: 1rem;
+      padding: 5px 8px;
+    }
+  }
+  
+  /* ====== TRANSLATOR SECTION ====== */
+  .language-translator-title {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .translator-container {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .jobs-container {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .jobs-title {
+    font-size: 2rem;
+    color: #2c3e50;
+  }
+  
+  .jobs-desc {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .job-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  
+  .job-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .job-title {
+    font-size: 1.5rem;
+    color: #34495e;
+  }
+  
+  .job-desc {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .job-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #2980b9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .job-button:hover {
+    background: #1c5985;
+  }
